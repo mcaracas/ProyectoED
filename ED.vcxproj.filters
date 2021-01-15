@@ -63,6 +63,9 @@
     <ClInclude Include="servicioBanco.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HeapPriorityQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ComparadorID.cpp">

@@ -148,6 +148,7 @@
     <ClInclude Include="ComparadorPrioridad.h" />
     <ClInclude Include="CsvReader.h" />
     <ClInclude Include="CsvWriter.h" />
+    <ClInclude Include="HeapPriorityQueue.h" />
     <ClInclude Include="IComparador.h" />
     <ClInclude Include="IReader.h" />
     <ClInclude Include="IteradorArrayList.h" />

@@ -122,7 +122,7 @@ public:
 
         // Replace the value at the root 
         // with the last leaf 
-        *this->lista->consultarPorPosicion(0) = *this->lista->consultarPorPosicion(this->lista->getCantidad()-1);
+        *this->lista->consultarPorPosicion(0) = *this->lista->consultarPorPosicion(this->lista->getCantidad()-1); //eso si pasa?
         this->getLista()->setCantidad(this->getLista()->getCantidad() - 1);
 
         // Shift down the replaced element 
@@ -158,14 +158,13 @@ public:
     // located at given index 
     void remove(int i)
     {
-        T* elemento = new T(getMax());
-        //*this->lista->consultarPorPosicion(i) = getMax();
+        T* elemento = new T(getMax()); //que hace esto??
         this->lista->borrarEnPosicion(i);
         this->lista->insertarEnPosicion(elemento, i);
         // Shift the node to the root 
         // of the heap 
         shiftUp(i);
-
+        this->cantidad--;
         // Extract the node 
         extractMax();
     }
