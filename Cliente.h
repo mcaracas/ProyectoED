@@ -112,13 +112,13 @@ bool  operator>(const Cliente& c2, const Cliente& c1) {
 }
 */
 
-
+inline
 ostream& operator<<(ostream& out, const Cliente& cli)
 {
 	out << cli.toString();
 	return out;
 }
-
+inline
 bool  operator==(const Cliente& c2, const Cliente& c1) {
 	return (c2.getId() == c1.getId());
 
