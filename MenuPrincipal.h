@@ -147,6 +147,7 @@ private:
 		cerr << "No se encontro el cliente con el id: " << id << endl;
 	}
 	void atenderLosSiguientesCincoClientes() {
+		int kk = 1;
 		if (hpqClientes->getCantidad()>0) {
 			cout << "Los proximos cinco clientes a atender son: " << endl;
 			for (int i = 0; i < 5; i++) {
@@ -171,22 +172,14 @@ private:
 			int i = 0;
 			int s = hpqClientes->getLista()->getCantidad();
 			while (i < s) {
-				//cout << (kk) << ")" << *hpqClientes->getLista()->consultarPorPosicion(i) << " ";
-				//hpqClientes->remove(i); //con esto se vacia la cola
 				cout << i << hpqClientes->extractMax() << endl;
 				i++;
-				//kk++;
 			}
-			//cout << hpqClientes->getCantidad() << endl;
 		}else {
 			cerr << "No hay cola por el momento\n";
 		}
 
-		
-		/*cout << ")" << hpqClientes->getLista()->toString() << endl;
-		hpqClientes->getLista()->liberarDatosInternos();
-		cout << "cantidad del heap: " << hpqClientes->getCantidad();
-		*/
+
 	}
 	void agregarUnClienteNuevo() {
 		string nombre, texto = ""; long long id; bool cnNinos, embarazada, adMayor; int categoria;

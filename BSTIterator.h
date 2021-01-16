@@ -15,7 +15,7 @@ public:
 	BSTIterator(Nodo<T>* root) {
 		fillStack(root);
 	}
-	/** @return the next smallest number */
+
 	T next() {
 		Nodo<T>* curr = st.top();
 		st.pop();
@@ -24,7 +24,7 @@ public:
 		}
 		return curr->getElemento();
 	}
-	/** @return whether we have a next smallest number */
+
 	bool hasNext() {
 		return !st.empty();
 	}

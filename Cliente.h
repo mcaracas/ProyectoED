@@ -18,9 +18,7 @@ public:
 		this->categoria = categoria;
 
 	}
-	/*Cliente() {
-	
-	}*/
+
     string getNombre() const { return nombre; }
     void setNombre(string nombre) { this->nombre = nombre; }
 
@@ -77,40 +75,11 @@ public:
 		return res;
 	}
 
-	/*
-			static bool inferirPrioridad(const Cliente& cl1, const Cliente& cl2) {
-		return (cl1.calcularPrioridad(cl1) > cl2.calcularPrioridad(cl2)) ? true : false;
-	}
-	template <class T>
-	static bool inferirPrioridad(const T& cl1, const T& cl2) {
-		return (cl1.getId() > cl2.getId()) ? true : false;
-	}
-	*/
+
 
 	
 
 };
-/*
-bool  operator>=(const Cliente& c2, const Cliente& c1) {
-	return (c2.getId() >= c1.getId() || c1.getId() >= c2.getId());
-
-}
-bool  operator==(const Cliente& c2, const Cliente& c1) {
-	return (c2.getId() == c1.getId());
-
-}
-bool  operator<=(const Cliente& c2, const Cliente& c1) {
-	return (c2.getId() <= c1.getId() || c1.getId() <= c2.getId());
-
-}
-bool  operator<(const Cliente& c2, const Cliente& c1) {
-	return (!Cliente::inferirPrioridad(c2,c1));
-
-}
-bool  operator>(const Cliente& c2, const Cliente& c1) {
-	return (Cliente::inferirPrioridad(c2, c1));
-}
-*/
 
 inline
 ostream& operator<<(ostream& out, const Cliente& cli)
