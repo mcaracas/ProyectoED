@@ -169,12 +169,13 @@ private:
 		if (hpqClientes->getCantidad() > 0) {
 			cout << "Simulacion de atencion de clientes: ";
 			int i = 0;
-			while (i < hpqClientes->getLista()->getCantidad()) {
-				cout << (kk) << ")" << *hpqClientes->getLista()->consultarPorPosicion(i) << " ";
+			int s = hpqClientes->getLista()->getCantidad();
+			while (i < s) {
+				//cout << (kk) << ")" << *hpqClientes->getLista()->consultarPorPosicion(i) << " ";
 				//hpqClientes->remove(i); //con esto se vacia la cola
-				hpqClientes->extractMax();
+				cout << i << hpqClientes->extractMax() << endl;
 				i++;
-				kk++;
+				//kk++;
 			}
 			//cout << hpqClientes->getCantidad() << endl;
 		}else {
