@@ -20,6 +20,7 @@ private:
 	vector<Cliente*>* cargarClientes;
 	HPQ<Cliente>* hpqClientes;
 	ServicioBanco* s1;
+	int kk = 1;
 public:
 
 	MenuPrincipal(){
@@ -30,10 +31,8 @@ public:
 			s1 = new ServicioBanco();
 			s1->insertarEnArbol(cargarClientes);
 			this->hpqClientes = new HPQ<Cliente>;
-			//ComparadorID* compID = new ComparadorID();
 			ComparadorPrioridad* compPrioridad = new ComparadorPrioridad();
 			hpqClientes->setComparador(compPrioridad);
-			//s1->getArbol()->setComparador(compID);
 		}
 	}
 	void invocarMenu()
@@ -133,30 +132,25 @@ private:
 		Cliente clienteAux = Cliente();
 		long long id;
 		cout << "Digite el id del cliente a buscar" << endl;
-		cin >> id;
-		//cliente.setId(id);
+		id = leerLong();
 		BSTIterator<Cliente>* ite = this->s1->getArbol()->obtenerIterador();
 		while (ite->hasNext()) {
 			Cliente cliente = ite->next();
 			if (cliente.getId() == id) //recorre arbol BST
 			{
-				clienteAux = cliente; //si encuentra cliente con nombre lo iguala a la variable
-				//falta manejar excepcion si no lo encuentra
+				clienteAux = cliente;
+				hpqClientes->insert(clienteAux);
+				cout << "Cliente encolado con exito" << endl;
+				return;
 			}
 		}
-
-
-		//cliente = (s1->getArbol()->buscaRecur(cliente, s1->getArbol()->getRoot()))->getElemento();
-		hpqClientes->insert(clienteAux);
+		cerr << "No se encontro el cliente con el id: " << id << endl;
 	}
 	void atenderLosSiguientesCincoClientes() {
 		if (hpqClientes->getCantidad()>0) {
 			cout << "Los proximos cinco clientes a atender son: " << endl;
 			for (int i = 0; i < 5; i++) {
-				
-
 				cout << hpqClientes->extractMax();
-				///HAY QUE MANEJAR OTRA EXCEPCION
 			}
 		}
 		else {
@@ -176,24 +170,31 @@ private:
 			cout << "Simulacion de atencion de clientes: ";
 			int i = 0;
 			while (i < hpqClientes->getLista()->getCantidad()) {
-				cout << *hpqClientes->getLista()->consultarPorPosicion(i) << " ";
+				cout << (kk) << ")" << *hpqClientes->getLista()->consultarPorPosicion(i) << " ";
 				//hpqClientes->remove(i); //con esto se vacia la cola
 				hpqClientes->extractMax();
 				i++;
+				kk++;
 			}
 			//cout << hpqClientes->getCantidad() << endl;
 		}else {
 			cerr << "No hay cola por el momento\n";
 		}
+
+		
+		/*cout << ")" << hpqClientes->getLista()->toString() << endl;
+		hpqClientes->getLista()->liberarDatosInternos();
+		cout << "cantidad del heap: " << hpqClientes->getCantidad();
+		*/
 	}
 	void agregarUnClienteNuevo() {
-		string nombre, texto = ""; double id; bool cnNinos, embarazada, adMayor; int categoria;
+		string nombre, texto = ""; long long id; bool cnNinos, embarazada, adMayor; int categoria;
 		cout << "Digite el nombre "<<endl ;
 		cin.ignore();
 		getline(cin, nombre);
 		fflush(stdin);
 		cout << "Digite el Id " << endl;
-		id = leerDouble();
+		id = leerLong();
 		cout << "Viene con Ninos Si o No" << endl;
 		cin >> texto;
 		cnNinos = verificarBooleanos(texto);
@@ -231,8 +232,8 @@ private:
 			}
 		}
 	}
-	double leerDouble() {
-		double n;
+	long long leerLong() {
+		long long n;
 		while (true) {
 			if (cin >> n) {
 				cin.clear();

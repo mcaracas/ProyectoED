@@ -146,7 +146,6 @@ public:
             shiftDown(i);
         }
     }
-
     // Function to get value of the current 
     // maximum element 
     T getMax()
